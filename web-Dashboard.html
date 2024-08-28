@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dashboard with Form and Table</title>
+    <link rel="stylesheet" href="style.css">
+    
+  </head>
+  <body>
+    <div>
+      <header>
+        <div class="header-info">
+          <div class="main-logo">
+            <img width="130" alt="Logo" src="main-logo.svg" />
+          </div>
+          <div class="user-info">
+            <img id="userIcon" src="user-icon.jpg" alt="User Icon" />
+            <div class="user-popup" id="userPopup">
+              <p>Name: Nikhil</p>
+              <p>Email: nikhil@example.com</p>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <nav>
+        <ul>
+          <li><a href="#">Home</a></li>
+          <li><a href="#">Dashboard</a></li>
+          <li><a href="#">Reports</a></li>
+          <li><a href="#">Settings</a></li>
+          <li><a href="#">Contact</a></li>
+        </ul>
+
+        <a href="web-login.html" class="logout-button">Logout</a>
+      </nav>
+
+      <div class="main-container">
+        <div class="form-container">
+          <h2>Enter Details</h2>
+          <form id="userForm">
+            <div class="form-group">
+              <label for="name">Name:</label>
+              <input type="text" id="name" required />
+            </div>
+            <div class="form-group">
+              <label for="city">City:</label>
+              <input type="text" id="city" required />
+            </div>
+            <div class="form-group">
+              <label for="number">Phone Number:</label>
+              <input type="number" id="number" required />
+            </div>
+            <div class="form-group">
+              <label for="gender">Gender:</label>
+              <select id="gender" required>
+                <option value="">Select Gender</option>
+                <option value="Male">Male</option>
+                <option value="Female">Female</option>
+                <option value="Other">Other</option>
+              </select>
+            </div>
+            <button type="submit">Submit</button>
+          </form>
+        </div>
+
+        <div class="table-container">
+          <h2>Submitted Details</h2>
+          <table>
+            <thead>
+              <tr>
+                <th>Name </th>
+                <th>City</th>
+                <th>Phone Number</th>
+                <th>Gender</th>
+              </tr>
+            </thead>
+            <tbody id="userTableBody"></tbody>
+          </table>
+        </div>
+      </div>
+
+      <footer>
+        <p>&copy; 2024 All Rights Reserved.</p>
+      </footer>
+    </div>
+
+    <link rel="stylesheet" href="script.js">
+  </body>
+</html>

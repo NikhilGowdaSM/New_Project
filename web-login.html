@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login</title>
+    <style>
+      body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+        background-image: url(img1.jpg);
+        font-family: Arial, sans-serif;
+      }
+
+      .login-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+      }
+
+      .login-box {
+        background: #ffffff;
+        padding: 50px;
+        border-radius: 8px;
+        text-align: center;
+      }
+
+      h2 {
+        margin: 0 0 20px;
+        justify-content: center;
+        font-family: Arial, Helvetica, sans-serif;
+      }
+
+      .input-group {
+        margin-bottom: 20px;
+        text-align: left;
+      }
+
+      .input-group label {
+        display: flex;
+        flex-direction: column;
+        margin: 10px 10px 10px;
+        font-weight: bold;
+      }
+
+      .input-group input {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #0f0e0e;
+        box-sizing: border-box;
+      }
+
+      .input-group :hover {
+        border-color: 1px #d70202;
+      }
+
+      button {
+        width: 100%;
+        padding: 10px;
+        border: none;
+        border-radius: 4px;
+        background-color: #23c048;
+        color: white;
+        font-size: 16px;
+        cursor: pointer;
+      }
+
+      button:hover {
+        background-color: #4607ab;
+      }
+
+      
+      .toaster {
+        visibility: hidden;
+        min-width: 250px;
+        margin-left: -125px;
+        background-color: #333;
+        color: #fff;
+        text-align: center;
+        border-radius: 2px;
+        padding: 16px;
+        position: fixed;
+        z-index: 1;
+        left: 50%;
+        bottom: 30px;
+        font-size: 17px;
+      }
+
+      .toaster.show {
+        visibility: visible;
+        -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
+        animation: fadein 0.5s, fadeout 0.5s 2.5s;
+      }
+
+      
+    </style>
+  </head>
+  <body>
+    <div class="login-container">
+      <div class="login-box">
+        <h2>Login</h2>
+        <form id="loginForm">
+          <div class="input-group">
+            <label for="username">Username</label>
+            <input
+              type="email"
+              id="username"
+              name="username"
+              placeholder="yourname@gmail.com"
+              required
+            />
+          </div>
+          <div class="input-group">
+            <label for="password">Password</label>
+            <input
+              type="password"
+              id="password"
+              name="password"
+              placeholder="Password"
+              required
+            />
+          </div>
+          <button type="submit" onclick="web-Dashboard.html">Go!</button>
+        </form>
+      </div>
+    </div>
+
+    
+    <div id="toaster" class="toaster"></div>
+
+    <script>
+      document.getElementById('loginForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+
+        const username = document.getElementById('username').value;
+        const password = document.getElementById('password').value;
+
+        
+        const validUsername = "nikhil@gmail.com";
+        const validPassword = "123@123";
+
+        if (username === validUsername && password === validPassword) {
+          showToast("Login successful!", true);
+
+          
+          setTimeout(function() {
+            window.location.href = "web-Dashboard.html";
+          }, 1000); 
+
+        } else {
+          showToast("Login failed! Invalid credentials.", false);
+        }
+      });
+
+      function showToast(message, success) {
+        const toaster = document.getElementById('toaster');
+        toaster.innerText = message;
+        toaster.style.backgroundColor = success ? '#28a745' : '#dc3545';
+        toaster.className = "toaster show";
+
+        setTimeout(function() {
+          toaster.className = toaster.className.replace("show", "");
+        }, 3000);
+      }
+    </script>
+  </body>
+</html>
